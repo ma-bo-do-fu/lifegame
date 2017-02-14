@@ -29,12 +29,12 @@ window.onload = function() {
 function onStart() {
   if (running) {
     clearInterval(timer1);
-    buttonStart.value = "Start";
+    buttonStart.innerText = "Start";
     running = false;
   } else {
     nextGeneration();
     timer1 = setInterval("nextGeneration()", 100);
-    buttonStart.value = "Stop";
+    buttonStart.innerText = "Stop";
     running = true;
   }
 }
@@ -80,7 +80,6 @@ function drawCell(x, y) {
   ctx.fillRect(x * cellSize, y * cellSize,
     cellSize - 1, cellSize - 1);
 }
-
 // 世代を進行させる
 function nextGeneration() {
   var tmpCells = new Array();
