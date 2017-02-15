@@ -1,5 +1,5 @@
 var canvas;
-var ctx;
+var context;
 var cellSize = 8; // セル1マスのサイズ
 var cols;
 var rows;
@@ -12,7 +12,7 @@ var running = false;
 
 window.onload = function() {
   canvas = document.getElementById('lifegame');
-  ctx = canvas.getContext('2d');
+  context = canvas.getContext('2d');
   cols = Math.floor(canvas.width / cellSize);
   rows = Math.floor(canvas.height / cellSize);
   initCells();
@@ -41,8 +41,8 @@ function onStart() {
 
 // 初期化
 function initCells() {
-  ctx.fillStyle = 'rgb(60, 60, 60)';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  context.fillStyle = 'rgb(60, 60, 60)';
+  context.fillRect(0, 0, canvas.width, canvas.height);
   for (col = 0; col < cols; col++) {
     cells[col] = new Array();
     for (row = 0; row < rows; row++) {
@@ -75,10 +75,9 @@ function redraw() {
 // セルを描画
 function drawCell(x, y) {
   var value = cells[x][y];
-  var style = value ? "rgb(156, 255,0)" : "rgb(40,40,40)";
-  ctx.fillStyle = style;
-  ctx.fillRect(x * cellSize, y * cellSize,
-    cellSize - 1, cellSize - 1);
+  var style = value ? "rgb(54, 88, 0)" : "rgb(40,40,40)";
+  context.fillStyle = style;
+  context.fillRect(x * cellSize, y * cellSize, cellSize - 1, cellSize - 1);
 }
 // 世代を進行させる
 function nextGeneration() {
